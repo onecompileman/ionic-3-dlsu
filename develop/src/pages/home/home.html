@@ -1,20 +1,25 @@
 <ion-header>
   <ion-navbar>
+    <ion-buttons end>
+      <div (click)="logout()">
+        <ion-icon name="exit"></ion-icon>
+      </div>
+    </ion-buttons>
     <ion-title>
-      Students List 
+      Students List
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-<div padding>
-  <button ion-button block (click)="addStudent()">
-    Add Student
-  </button>
-</div>  
-<ion-list>
-  <button ion-item *ngFor="let student of students" >
-    {{ student }}
-  </button>
-</ion-list>
+  <div padding>
+    <button ion-button block (click)="addStudent()">
+      Add Student
+    </button>
+  </div>
+  <ion-list>
+    <button ion-item *ngFor="let student of students" (click)="onStudentClicked(student)">
+      {{ student.firstname + ' ' + student.lastname }}
+    </button>
+  </ion-list>
 </ion-content>
